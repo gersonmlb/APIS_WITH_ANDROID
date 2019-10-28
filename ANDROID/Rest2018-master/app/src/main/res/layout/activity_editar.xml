@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editarActivity"
+    android:orientation="vertical"
+    android:padding="50dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:gravity="center_horizontal"
+            android:text="EDITAR"
+            android:textColor="#EB0B0B"
+            android:textSize="32dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#47A4F5"
+            android:text="Nombres:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingVertical="5dp"
+            android:textColor="#0A0A0A"
+            android:background="@drawable/edt_estilos"
+            android:id="@+id/nombres"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#47A4F5"
+            android:text="Apellidos:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_estilos"
+            android:paddingLeft="10dp"
+            android:paddingVertical="5dp"
+            android:textColor="#0A0A0A"
+            android:id="@+id/apellidos"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#47A4F5"
+            android:text="Usuario:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingVertical="5dp"
+            android:textColor="#0A0A0A"
+            android:background="@drawable/edt_estilos"
+            android:id="@+id/user"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#47A4F5"
+            android:text="Clave:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:paddingVertical="5dp"
+            android:textColor="#0A0A0A"
+            android:background="@drawable/edt_estilos"
+            android:id="@+id/clave"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/sphp"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#9C27B0"
+            android:onClick="Ephp"
+            android:text="PHP SAVE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/sphp2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#9C27B0"
+            android:onClick="ELphp"
+            android:text="PHP DELETE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/spython"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#4CAF50"
+            android:onClick="Epython"
+            android:text="PYTHON SAVE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/spython2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#4CAF50"
+            android:onClick="ELpython"
+            android:text="PYTHON DELETE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/sjava"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#DD0707"
+            android:onClick="Ejava"
+            android:text="JAVA SAVE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/sjava2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#DD0707"
+            android:onClick="ELjava"
+            android:text="JAVA DELETE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/snode"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#FFC107"
+            android:onClick="Enode"
+            android:text="NODE JS SAVE"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/snode2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#FFC107"
+            android:onClick="ELnode"
+            android:text="NODE JS DELETE"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btnlimpiar"
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/boton_estilos"
+            android:backgroundTint="#00BCD4"
+            android:onClick="reset"
+            android:text="Limpiar"
+            android:textColor="#FAF9F6" />
+
+    </LinearLayout>
+</LinearLayout>

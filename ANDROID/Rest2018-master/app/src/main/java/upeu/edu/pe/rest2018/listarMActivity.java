@@ -1,16 +1,13 @@
 package upeu.edu.pe.rest2018;
 
 import android.content.Intent;
-import android.graphics.drawable.Icon;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -21,16 +18,16 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ListarActivity extends AppCompatActivity {
+public class listarMActivity extends AppCompatActivity {
 
     ListView list;
     Button crear;
-    private EditText edtn,edtap,edtuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar);
+        setContentView(R.layout.activity_listar_m);
+
         list = findViewById(R.id.lvdatos);
         crear = findViewById(R.id.crear);
 
@@ -45,21 +42,28 @@ public class ListarActivity extends AppCompatActivity {
                 intent.putExtra("CLAVE", usuario.getClave());
                 intent.putExtra("USUARIO", usuario.getUsuario());
                 intent.putExtra("ESTADO", usuario.getEstado());
-                System.out.println(intent);
                 startActivity(intent);
-
             }
         });
-            ListarUsuarios(getIntent().getStringExtra("url"));
+
+        ListarUsuariosM(getIntent().getStringExtra("urlM"));
     }
 
-    public void ListarUsuarios(String url){
+
+
+    public void Crear(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void ListarUsuariosM(String urlM){
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(url, null, new AsyncHttpResponseHandler() {
+        client.get(urlM, null, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode == 200) {
-                    cargarLisview(getJson(new String(responseBody)));
+                    cargarLisviewM(getJsonM(new String(responseBody)));
                 }
             }
             @Override
@@ -68,35 +72,33 @@ public class ListarActivity extends AppCompatActivity {
             }
         });
     }
-    public void cargarLisview(ArrayList<Usuario> datos){
+    public void cargarLisviewM(ArrayList<Usuario> datos){
         list.setAdapter(null);
         ArrayAdapter<Usuario> adapter = new ArrayAdapter<Usuario>(this,android.R.layout.simple_list_item_1,datos);
         list.setAdapter(adapter);
     }
-    public ArrayList<Usuario> getJson(String response){
+    public ArrayList<Usuario> getJsonM(String response){
+
+        String id=(getIntent().getStringExtra("id"));
+
         ArrayList<Usuario> lista = new ArrayList<>();
         try {
             JSONArray array = new JSONArray(response);
             for(int i=0; i<array.length();i++){
                 Usuario usuario = new Usuario();
-                usuario.setIdusuario(array.getJSONObject(i).getString("idusuario"));
-                usuario.setNombres(array.getJSONObject(i).getString("Nombres"));
-                usuario.setApellidos(array.getJSONObject(i).getString("Apellidos"));
-                usuario.setClave(array.getJSONObject(i).getString("Clave"));
-                usuario.setUsuario(array.getJSONObject(i).getString("Usuario"));
-                usuario.setEstado(array.getJSONObject(i).getString("Estado"));
+                usuario.setIdusuario(array.getJSONObject(i).getString( id));
+                usuario.setNombres(array.getJSONObject(i).getString("nombres"));
+                usuario.setApellidos(array.getJSONObject(i).getString("apellidos"));
+                usuario.setClave(array.getJSONObject(i).getString("usuario"));
+                usuario.setUsuario(array.getJSONObject(i).getString("clave"));
+                usuario.setEstado(array.getJSONObject(i).getString("estado"));
                 lista.add(usuario);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
         return lista;
-    }
 
-    public void Crear(View view) {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
     }
-
 
 }

@@ -11,14 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="API REST - PHP"
-            android:textSize="32dp"
-            android:textColor="#EB0B0B"
             android:layout_marginBottom="30dp"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:text="CREAR"
+            android:textColor="#EB0B0B"
+            android:textSize="32dp">
 
         </TextView>
 
@@ -77,31 +78,72 @@
         android:id="@+id/clave"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp">
+        android:layout_height="325dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
         <Button
-            android:id="@+id/btncalcular"
-            android:layout_width="wrap_content"
+            android:id="@+id/sphp"
+            android:layout_width="214dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:onClick="save"
-            android:background="@drawable/boton_estilos_reset"
-            android:textColor="#E6D33A"
             android:layout_marginLeft="40dp"
-            android:text="Guardar" />
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#9C27B0"
+            android:onClick="sphp"
+            android:text="PHP SAVE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/spython"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#4CAF50"
+            android:onClick="spython"
+            android:text="PYTHON SAVE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/sjava"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#DD0707"
+            android:onClick="sjava"
+            android:text="JAVA SAVE"
+            android:textColor="#E6D33A" />
+
+        <Button
+            android:id="@+id/snode"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/boton_estilos_reset"
+            android:backgroundTint="#FFC107"
+            android:onClick="snode"
+            android:text="NODE JS SAVE"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnlimpiar"
-            android:layout_width="wrap_content"
+            android:layout_width="183dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="60dp"
-             android:background="@drawable/boton_estilos"
+            android:background="@drawable/boton_estilos"
+            android:backgroundTint="#00BCD4"
             android:onClick="reset"
             android:text="Limpiar"
             android:textColor="#FAF9F6" />
+
     </LinearLayout>
 </LinearLayout>

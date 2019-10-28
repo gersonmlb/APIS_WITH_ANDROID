@@ -1,5 +1,5 @@
 <?php 
-header('Content-Type: application/json');
+#header('Content-Type: application/json');
 $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
  case 'POST': // create data
@@ -19,22 +19,22 @@ switch ($method) {
 		  deleteOperation($data);
     	break;
   default:
-    	print('{"result": "Requested http method not supported here."}');
+    	print('{"PHP": "Requested http method not supported here."}');
 }
 // functions
   function putOperation($data){
       //Funciona
     include "conexion.php";
-    $id = $data["id"];
-    $proveedor = $data["Nombre"];
+    $id = $data["idusuario"];
+    $proveedor = $data["Nombres"];
     $ruc = $data["Apellidos"];
     $direccion = $data["Usuario"];
     $telefono = $data["Clave"];
-    $sql = "UPDATE usuario SET nombres = '$proveedor', apellidos = '$ruc', usuario = '$direccion', clave = $telefono WHERE idusuario = '$id'";
+    $sql = "UPDATE usuario SET Nombres = '$proveedor', Apellidos = '$ruc', Usuario = '$direccion', Clave = $telefono WHERE idusuario = '$id'";
     if (mysqli_query($conn, $sql) or die()) {
-        echo '{"result": "Success"}';
+        echo '{"PHP": "Success"}';
     } else {
-        echo '{"result": "Sql error"}';
+        echo '{"PHP": "Sql error"}';
     }
   }
   function getOperation(){
@@ -46,29 +46,28 @@ switch ($method) {
         // output data of each row
       $rows = array();
        while($r = mysqli_fetch_assoc($result)) {
-          $rows["result"][] = $r; // with result object
+          $rows[] = $r; // with result object
         //  $rows[] = $r; // only array
        }
       echo json_encode($rows);
     } else {
-        echo '{"result": "No data found"}';
+        print '{"PHP": "Data no encontrada"}';
     }
   }
+  
   function postOperation($data){
-      //no funciona
-   //print_r($data);
-
    include "conexion.php";
    $nombres = $data["Nombres"];
    $apellidos = $data["Apellidos"];
-   $usuario = $data["Usuario"];
-   $clave = md5($data["Clave"]);
-   $sql = "insert into usuario(idusuario,nombres,apellidos,usuario,clave,estado) values(null,'$nombres','$apellidos', '$usuario', '$clave', '1')";
-       $datos = array();
+   $usuario = $data["Usuarios"];
+   $clave = md5($data["Claves"]);
+   $sql = "insert into usuario (idusuario,Nombres,Apellidos,Usuario,Clave,Estado) values(null,'$nombres','$apellidos', '$usuario', '$clave','1')";
+   print($sql);
+   $datos = array();
     if (mysqli_query($conn, $sql)) {
-        echo '{"result": "Success"}';
+        print ('{"PHP": "Registrado"}');
     } else {
-        echo '{"result": "Sql error"}';
+        print ('{"PHP": "Sql error"}');
     }
   }
   function deleteOperation($data){
@@ -77,9 +76,9 @@ switch ($method) {
     $id = $data["id"];
     $sql = "DELETE FROM proveedor WHERE idproveedor = $id";
     if (mysqli_query($conn, $sql)) {
-        echo '{"result": "Success"}';
+        echo '{"PHP": "Realizado"}';
     } else {
-        echo '{"result": "Sql error"}';
+        echo '{"PHP": "Sql error"}';
     }
   }
  ?>
